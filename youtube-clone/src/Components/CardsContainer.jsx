@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { VIDEO_API } from "../utils/constants";
-import VideoCard from "./VideoCard";
+import VideoCard, { AdVideoCard } from "./VideoCard";
 
 const VideoCardsContainer = () => {
   const [videoList, setVideoList] = useState([]);
@@ -18,8 +18,9 @@ const VideoCardsContainer = () => {
   };
   return (
     <div className="flex flex-wrap gap-10">
+      {videoList[0] && <AdVideoCard info={videoList[0]} />}
       {videoList.map((items) => (
-        <VideoCard info={items} />
+        <VideoCard key={items.id} info={items} />
       ))}
     </div>
   );

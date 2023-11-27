@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 // import store from "../utils/store";
 
 const SideBar = () => {
@@ -9,14 +10,16 @@ const SideBar = () => {
   if (!toggleMenu) return null;
   return (
     <div className="">
-      <div className=" px-3 py-2  border border-black w-56">
+      <div className=" px-3 py-2  border border-black w-56 h-1/12 overflow-scroll ">
         <div className="flex items-center justify-start  gap-2">
           <img
             className="h-11 "
             src="https://imgs.search.brave.com/oiSD-iLBP_rlrktgVm1jm2s4cPLsVTAXD_D0kz4aiY0/rs:fit:860:0:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzA2LzAyLzgxLzcz/LzM2MF9GXzYwMjgx/NzMyNl9JTUVlOFAw/NExNeTNhekdaTmxW/cTFxR0NKQ0FxY3Jp/ZC5qcGc"
             alt="home"
           />
-          <h3 className="font-medium">Home</h3>
+          <h3 className="font-medium">
+            <Link to="/">Home</Link>
+          </h3>
         </div>
         <div className="flex items-center justify-start  gap-2">
           <img

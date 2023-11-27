@@ -3,6 +3,8 @@ import MainContainer from "./Components/MainContainer";
 import "./index.css";
 import { Provider } from "react-redux";
 import store from "./utils/store";
+import VideoContainer from "./Components/VideoContainer";
+import Watch from "./Components/Watch";
 
 /**
  * 
@@ -15,13 +17,34 @@ import store from "./utils/store";
  * 
  * 
  */
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
+
+const appRouter = createBrowserRouter([
+  {
+    path: "/",
+    element: <MainContainer />,
+    children: [
+      {
+        path: "/",
+        element: <VideoContainer />,
+      },
+      {
+        path: "watch",
+        element: <Watch />,
+      },
+    ],
+  },
+]);
 function App() {
   return (
     <Provider store={store}>
+      {/* <Router> */}
       <div>
         <Header />
-        <MainContainer />
+        <RouterProvider router={appRouter} />
       </div>
+      {/* </Router> */}
     </Provider>
   );
 }
